@@ -1,7 +1,5 @@
-# Vue 3 + Vite
+# Vista de transcripción
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Una app para poder visualizar la transcripción de tu audio, el componente principal obtiene una lista con las palabras y sus tiempos y tambien una lista de donde estan las conversiaciónes en caso de tener la
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+**NOTA**: Esta compatibilizado para utilizar archivos de transcripción de AWS
