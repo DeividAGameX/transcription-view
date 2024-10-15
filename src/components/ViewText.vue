@@ -6,6 +6,11 @@ const props = defineProps({
         type: Object,
         default: []
     },
+    transcribe: {
+        type: String,
+        required: false,
+        default: ""
+    },
     dialog: {
         type: Object,
         required: false,
@@ -50,8 +55,11 @@ watch(pos, () => {
         <h3 class="text-3xl mt-2">Transcripción</h3>
         <div role="textbox" class="dialog">
             <span v-for="(palabra, index) in props.words" :id="'words-'+index" :key="index"
-                :class="{ 'word': time > palabra.start && time < palabra.end }">{{ palabra.text + " " }}</span>
+                :class=" { 'rounded-lg word': time > palabra.start && time < palabra.end }">{{ palabra.text + " " }}</span>
         </div>
+        <!-- <textarea name="x" id="xd" class="w-full bg-neutral-900 border-2 border-white p-2 rounded-lg text-white">
+        {{ props.transcribe }}
+        </textarea> -->
     </div>
 
     <div v-if="props.view === 'dialog'">
@@ -69,8 +77,7 @@ watch(pos, () => {
                 <p>
                     <!-- {{ item.words }} -->
                     <span v-for="(palabra, index) in item.text" :id="palabra.text" :key="index"
-                        :class="{ 'word': props.time > palabra.start && props.time < palabra.end }">{{ palabra.text + " "
-                        }}</span>
+                        :class="{ 'word': props.time > palabra.start && props.time < palabra.end }">{{ palabra.text + " "}}</span>
                 </p>
             </li>
         </ul>

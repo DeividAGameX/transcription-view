@@ -27,10 +27,10 @@ const file = ref("");
 const time = ref(0)
 const ejemplos = ref([
   {
-    name:"Test 1"
+    name: "Test 1"
   },
   {
-    name:"Test 2"
+    name: "Test 2"
   }
 ])
 
@@ -131,7 +131,6 @@ const handleJson = (event) => {
   isLoading.value = true
   let reader = new FileReader();
   reader.onload = e => {
-    console.log(e.target.result);
     let data = JSON.parse(e.target.result);
     transcribe.value = data.results.transcripts.map((e) => e.transcript).join('')
     palabras.value = data.results.items.filter(e => e.type === "pronunciation").map((e, index) => {
@@ -371,7 +370,7 @@ const selectTest = (event) => {
 
   <MediaComponent :file="file" :on-change-time="changeTime" />
 
-  <ViewText :words="palabras" :dialog="listTranscribe" :view="view" :time="time" />
+  <ViewText :words="palabras" :dialog="listTranscribe" :transcribe="transcribe" :view="view" :time="time" />
 </template>
 
 <style scoped></style>
